@@ -111,7 +111,7 @@ let myGreeting = setTimeout(sayHi, 2000);</pre>
 
 <h2 id="setInterval">setInterval()</h2>
 
-<p><code>setTimeout()</code> funciona perfeitamento quando você precisa executar algum código depois de um período de tempo. Mas o que acontece quando voc~e precisa executar o código de novo e de novo — por exemplo, no caso de uma animação?</p>
+<p><code>setTimeout()</code> funciona perfeitamente quando você precisa executar algum código depois de um período de tempo. Mas o que acontece quando você precisa executar o código de novo e de novo — por exemplo, no caso de uma animação?</p>
 
 <p>É aí que o <code><a href="/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval">setInterval()</a></code> entra. Ele funciona de uma maneira muito similar à <code>setTimeout()</code>, exceto que a função que você passar como primeiro parâmetro é executada repetidamente em não menos que um número determinado de milissegundos dado no segundo parâmetro, ao invés de apenas uma vez. Você também pode passar qualquer parâmetro sendo executado como um parâmetro subsequente da chamada de <code>setInterval()</code>.</p>
 
@@ -177,7 +177,7 @@ clearInterval(myInterval);</pre>
 
 <h3 id="Timeouts_recursivos">Timeouts recursivos</h3>
 
-<p>Há outra maneira de usar o  <code>setTimeout()</code>: você pode chamá-lo recusivamnete para executar o mesmo código repetidas vezes, ao invés de usar o <code>setInterval()</code>.</p>
+<p>Há outra maneira de usar o  <code>setTimeout()</code>: você pode chamá-lo recusivamente para executar o mesmo código repetidas vezes, ao invés de usar o <code>setInterval()</code>.</p>
 
 <p>O exemplo abaixo usa um <code>setTimeout()</code> recursivo para executar a função passada a cada <code>100</code> millissegundos:</p>
 
@@ -203,12 +203,12 @@ setInterval(function run() {
 <p>A diferença entre as duas versões é bem sútil.</p>
 
 <ul>
- <li>O <code>setTimeout()</code> recursivo garante que o mesmo intervalo entre as execuções (por exemplo, <code>100</code>ms no exemplo acima). O código será executado, depois esperar <code>100</code> milissegundos antes de fazer isso de novo— então o intervalo será o mesmo, idependente do tempo que o código leva para ser executado.</li>
+ <li>O <code>setTimeout()</code> recursivo garante que o mesmo intervalo entre as execuções (por exemplo, <code>100</code>ms no exemplo acima). O código será executado, depois esperar <code>100</code> milissegundos antes de fazer isso de novo— então o intervalo será o mesmo, independente do tempo que o código leva para ser executado.</li>
  <li>O exemplo usando <code>setInterval()</code> faz as coisas um pouco diferentes.O intervalo escolhido inclui o tempo necessário para executar o código que você deseja executar. Digamos que o código leva <code>40</code> milissegundos de execução — o intervalo acaba levando apenas <code>60</code> milissegundos.</li>
  <li>Quando usamos o <code>setTimeout()</code> recursivamente, cada iteração pode calcular um delay diferente antes de executar a próxima iteração. Em outras palavras, o valor do segundo parâmetro pode especificar um tempo diferente em milissegundos para esperar antes de rodar o código de novo.</li>
 </ul>
 
-<p>Quando seu código tem o potencial para levar mais tempo do que lhe foi atribuido, é melhor usar o <code>setTimeout()</code> recursivo — isso irá manter o intervalo de tempo constant entre execuções independente do quanto tempo o código levar para ser executado, e você não terá erros.</p>
+<p>Quando seu código tem o potencial para levar mais tempo do que lhe foi atribuido, é melhor usar o <code>setTimeout()</code> recursivo — isso irá manter o intervalo de tempo constante entre execuções independente do quanto tempo o código levar para ser executado, e você não terá erros.</p>
 
 <h3 id="Timeouts_imediatos">Timeouts imediatos</h3>
 
